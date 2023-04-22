@@ -18,18 +18,20 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
         children,
         ...restProps
     } = props;
+
     const context = useContext(MenuContext) //context有了之后，就可以知道哪个子选项应该高亮
+
     const classes = classNames('menu-item', className, {
         'is-disabled': disabled,
-        'is-active':context.index === index
+        'is-active': context.index === index
     })
-
     const handleClick = () => {
-        if(context.onSelect && !disabled) {
+
+        if (context.onSelect && !disabled ) {
             context.onSelect(index)
         }
     }
-    
+
     return (
         <li className={classes} style={style} onClick={handleClick}>
             {children}

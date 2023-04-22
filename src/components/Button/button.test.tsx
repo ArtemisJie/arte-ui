@@ -2,7 +2,7 @@ import React from "react";
 import { render,fireEvent } from '@testing-library/react'
 import Button, { ButtonType,ButtonSize } from "./button";
 import '@testing-library/jest-dom'
-import { mock } from "node:test";
+//import { mock } from "node:test";
 
 
 const testDefaultProps = {
@@ -15,7 +15,7 @@ const testDefaultProps = {
 const testLinkProps = {
     btnType:ButtonType.Link,
     href:'http://www.baidu.com',
-    btnSize:ButtonSize.Small,
+    size:ButtonSize.Small,
     onClick:jest.fn(),
     disabled:true
 }
