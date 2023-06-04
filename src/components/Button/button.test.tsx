@@ -2,27 +2,28 @@ import React from "react";
 import { render,fireEvent } from '@testing-library/react'
 import Button, { ButtonType,ButtonSize } from "./button";
 import '@testing-library/jest-dom'
+import { ButtonProps } from "./button";
 //import { mock } from "node:test";
 
 
-const testDefaultProps = {
-    btnType:ButtonType.Default,
-    size:ButtonSize.Large,
+const testDefaultProps:ButtonProps = {
+    btnType:'primary',
+    size:'lg',
     className:'diyBtn',
     onClick:jest.fn()
 }
 
-const testLinkProps = {
-    btnType:ButtonType.Link,
+const testLinkProps:ButtonProps = {
+    btnType:'link',
     href:'http://www.baidu.com',
-    size:ButtonSize.Small,
+    size:'sm',
     onClick:jest.fn(),
     disabled:true
 }
 
-const testDisabledProps = {
-    btnType:ButtonType.Default,
-    size:ButtonSize.Small,
+const testDisabledProps :ButtonProps= {
+    btnType:'default',
+    size:'sm',
     className:'diyBtn',
     onClick:jest.fn(),
     disabled:true

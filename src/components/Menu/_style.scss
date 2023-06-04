@@ -1,49 +1,125 @@
 .menu {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 30px;
+  list-style: none;
+  border-bottom: $menu-border-width solid $menu-border-color;
+  box-shadow: $menu-box-shadow;
+
+  >.menu-item {
+    padding: $menu-item-padding-y $menu-item-padding-x;
+    cursor: pointer;
+    transition: $menu-transition;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &.is-disabled {
+      color: $menu-item-disabled-color;
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &.is-active,
+    &:hover {
+      color: $menu-item-active-color;
+      border-bottom: $menu-item-active-border-width solid $menu-item-active-color;
+    }
+  }
+
+  .submenu-item {
+    position: relative;
+
+    .submenu-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .arrow-icon {
+      transition: transform .25s ease-in-out;
+      margin-left: 3px;
+    }
+
+    &:hover {
+      .arrow-icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .is-vertical {
+    .arrow-icon {
+      transform: rotate(0deg) !important;
+    }
+  }
+
+  .is-vertical.is-opend {
+    .arrow-icon {
+      transform: rotate(180deg) !important;
+    }
+  }
+
+  .submenu {
+    //display: none;  //*因为加入了react的csstransition组件
     list-style: none;
-    border-bottom: $menu-border-width solid $menu-border-color;
-    box-shadow: $menu-box-shadow;
+    padding-left: 0;
+    white-space: nowrap;
+    opacity: 0;
+    transition: $menu-transition;
+    transition: opacity 0.5s ease-in;
 
     .menu-item {
-        padding: $menu-item-padding-y $menu-item-padding-x;
-        cursor: pointer;
-        transition: $menu-transition;
+      padding: $menu-item-padding-y $menu-item-padding-x;
+      cursor: po inter;
+      transition: $menu-transition;
+      color: $body-color;
 
-        &:hover,
-        &:focus {
-            color: $menu-item-disabled-color;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        &.is-disabled {
-            color: $menu-item-disabled-color;
-            pointer-events: none;
-            cursor: default;
-        }
-
-        &.is-active,
-        &:hover {
-            color: $menu-item-active-color;
-            border-bottom: $menu-item-active-border-width solid $menu-item-active-color
-        }
+      &.is-active,
+      &:hover {
+        color: $menu-item-active-color !important;
+      }
     }
+  }
+
+
+  .submenu.menu-opened {
+    // display: block !important;
+    opacity: 1;
+  }
+}
+
+.menu-horizontal {
+  >.menu-item {
+    border-bottom: $menu-item-active-border-width solid transparent;
+  }
+
+  .submenu {
+    position: absolute;
+    background: $white;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: 0;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+  }
 }
 
 .menu-vertical {
-    flex-direction: coluom;
-    border-bottom: 0px;
-    border-right: $menu-border-width solid $menu-border-color;
+  flex-direction: column;
+  border-bottom: 0px;
+  margin: 10px 20px;
+  border-right: $menu-border-width solid $menu-border-color;
 
-    .menu-item {
+  >.menu-item {
+    border-left: $menu-item-active-border-width solid transparent;
 
-        color &.is-active,
-        &:hover {
-            border-bottom: 0;
-            border-left: $menu-item-active-border-width solid $menu-item-active-color
-        }
+    &.is-active,
+    &:hover {
+      border-bottom: 0px;
+      border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
+  }
 }

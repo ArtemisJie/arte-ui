@@ -1,24 +1,22 @@
 import classNames from 'classnames'
 import React from 'react'
 //button size
-export enum ButtonSize {
-    Large = 'lg',
-    Small = 'sm'
-}
+export type ButtonSize = 'lg' | 'sm';
 //button type
-export enum ButtonType {
-    Primary = 'primary',
-    Default = 'default',
-    Danger = 'danger',
-    Link = 'link'
-}
+export type ButtonType = 'primary' | 'default' | 'danger' | 'link';
 //button props
 interface BaseButtonProps {
+    /** 设置按钮的类名 */
     className?: string;
+    /** 设置按钮禁用属性 */
     disabled?: boolean;
+    /** 设置按钮的大小 */
     size?: ButtonSize;
+    /** 设置按钮的类型 */
     btnType?: ButtonType;
+    /** 设置按钮的子节点 */
     children: React.ReactNode;
+    /** 设置链接按钮的链接 */
     href?: string;
 }
 /* 
@@ -69,7 +67,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 }
 
 Button.defaultProps = {
-    btnType:ButtonType.Default,
-    disabled:false
+    btnType: 'default',
+    disabled: false
 }
 export default Button;
