@@ -10,6 +10,7 @@ library.add(fas)
 import Transition from './components/Transition/transition'
 import './styles/index.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
+import Input from './components/Input/input'
 function App() {
   const [show, setShow] = useState<boolean>();
   const [count, setCount] = useState(0)
@@ -69,6 +70,7 @@ function App() {
         </div>
         <Button btnType='default' size='sm'>inner</Button>
       </Transition>
+      <Input prepend={'nihao'} append={'sddsd'}/>
     </div>
   )
 }
