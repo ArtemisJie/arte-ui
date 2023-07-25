@@ -57,13 +57,29 @@ function filedReducer(state: FiledsState, action: FiledAction): FiledsState {
             return state
     }
 }
-export default function useStore() {
+export default function useStore(initialValues?: Record<string, any>) {
     const [form, setForm] = useState<FormState>({ isValid: true, isSubmitting: false, errors: {} })
     const [fileds, dispatch] = useReducer(filedReducer, {})
     const getFiledValue = (key: string) => { //获取对应值
         return fileds[key] && fileds[key].value
     }
-
+    const getFiledsValue = () => {
+        return mapValues(fileds, item => item.value)
+    }
+    const setFiledValue = (name: string, value: any) => {
+        if (fileds[name]) {
+            dispatch({ type: 'updateValue', name, value })
+        }
+    }
+    const resetFileds = () => {
+        if (initialValues) {
+            each(initialValues, (value, name) => {
+                if (fileds[name]) {
+                    dispatch({ type: 'updateValidateResult', name, value })
+                }
+            })
+        }
+    }
     const transfromRules = (rules: CustomRule[]) => {
         return rules.map(rule => { //因为我们需要ruleItem类型的，所以遇到自定义的rule要先转化为ruleItem
             if (typeof rule === 'function') {
@@ -135,6 +151,9 @@ export default function useStore() {
         form,
         validateFiled,
         getFiledValue,
-        validateAllfieds
+        validateAllfieds, 
+        getFiledsValue,
+        setFiledValue,
+        resetFileds
     }
 }
