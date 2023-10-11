@@ -1,14 +1,16 @@
 import React, { useRef } from 'react'
-import { ComponentMeta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react';
 import Form, { IFormRef } from './form'
 import Item from './formItem'
 import Input from '../Input'
-import Button from '../Button'
+import Button from '../Button';
 import { CustomRule } from './useStore'
 
-const meta: ComponentMeta<typeof Form> = {
+
+const meta: Meta<typeof Form> = {
   id: 'Form',
   component: Form,
+  tags: ['autodocs'],
   //@ts-ignore
   subcomponents: { 'Item': Item },
   decorators: [
@@ -26,7 +28,11 @@ const meta: ComponentMeta<typeof Form> = {
     }
   }
 }
-export default meta
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+
 const confirmRules: CustomRule[] = [
   { type: 'string', required: true, min: 3, max: 8 },
   ({ getFiledValue }) => ({
@@ -46,7 +52,7 @@ const confirmRules: CustomRule[] = [
   })
 ]
 //@ts-ignore
-export const ABasicForm = (args) => {
+export const ABasicForm: Story = (args) => {
   return (
     <Form {...args} >
       <Item label='用户名' name='name' rules={[{ type: 'string', required: true, min: 3 }]}>
@@ -63,7 +69,7 @@ export const ABasicForm = (args) => {
 }
 ABasicForm.storyName = '基本的登陆表单'
 //@ts-ignore
-export const BRegForm = (args) => {
+export const BRegForm: Story = (args) => {
   const initialValues = {
     agreement: false
   }
@@ -94,7 +100,7 @@ export const BRegForm = (args) => {
 }
 BRegForm.storyName = '注册表单，支持多种 FormItem 组件'
 //@ts-ignore
-export const CFullForm = (args) => {
+export const CFullForm: Story = (args) => {
   const ref = useRef<IFormRef>()
   const resetAll = () => {
     ref.current?.resetFileds();

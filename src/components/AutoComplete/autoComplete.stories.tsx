@@ -1,5 +1,5 @@
 import React from 'react'
-import { Meta, StoryObj, ComponentStory } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { AutoComplete, DataSourceType } from './autoComplete'
 interface LakerPlayerProps {
     value: string;
@@ -10,26 +10,25 @@ interface GithubUserProps {
     url: string;
     avatar_url: string;
 }
-export default {
+
+const meta: Meta<typeof AutoComplete> = {
     component: AutoComplete,
-    id: 'AutoComplete',
+    tags: ['autodocs'],
+    
     parameters: {
         docs: {
             source: {
                 type: "code",
             },
         }
-    },
-    // argTypes: { onClick: { action: 'clicked' }, onSelect: { action: 'selected' }, onChange: { action: 'changed' } },
-}
-
-export const basicSearch = {
-    args: {
-
     }
 }
 
-export const ASimpleComplete: ComponentStory<typeof AutoComplete> = (args) => {
+
+export default meta;
+type Story = StoryObj<typeof meta>
+//@ts-ignore
+export const ASimpleComplete: Story = (args) => {
     const lakers = ['bradley', 'pope', 'caruso', 'cook', 'cousins',
         'james', 'AD', 'green', 'howard', 'kuzma', 'McGee', 'rando']
     const handleFetch = (query: string) => {
@@ -111,8 +110,3 @@ export const CAjaxComplete = (args) => {
     )
 }
 CAjaxComplete.storyName = '3 支持异步搜索'
-
-// storiesOf('第九章：AutoComplete', module)
-//   .add('AutoComplete', simpleComplete, {info: {source: false, text: textComplete}})
-//   .add('自定义下拉选项', customComplete,  {info: {source: false, text: textCustom}})
-//   .add('异步请求Github用户名', ajaxComplete, {info: {source: false, text: textAjax}})

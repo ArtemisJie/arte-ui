@@ -5,10 +5,13 @@ import { ValidateError } from 'async-validator'
 export type RenderProps = (form: FormState) => ReactNode
 
 export interface FormProps {
-    name?: string; //form的名称
-    initialValues?: Record<string, any>;//{[key:string]:any}
+    name?: string;
+    /**表单默认值，只有初始化以及重置时生效 */
+    initialValues?: Record<string, any>;
     children?: ReactNode | RenderProps;
+    /**提交表单且数据验证成功后回调事件 */
     onFinsh?: (values: Record<string, any>) => void;
+    /**提交表单且数据验证失败后回调事件 */
     onFinshFailed?: (values: Record<string, any>, errors: Record<string, ValidateError[]>) => void;
 }
 
