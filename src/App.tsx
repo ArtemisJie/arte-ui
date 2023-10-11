@@ -12,13 +12,26 @@ import './styles/index.scss'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import Input from './components/Input/input'
 import Upload from './components/Upload/upload'
-
+import AutoComplete from './components/AutoComplete'
+import Form from './components/Form/form'
+import FormItem from './components/Form/formItem'
 function App() {
   const [show, setShow] = useState<boolean>();
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
+      <Form>
+        <FormItem label='邮件' name='email' rules={[{ type: 'email', required: true }]}>
+          <Input />
+        </FormItem>
+        <FormItem label='密码' name='password' rules={[{ type: 'string', required: true, min: 3, max: 8 }]}>
+          <Input type="password" />
+        </FormItem>
+        <div className='form-submit-area'>
+          <Button type="submit" btnType='primary'>登陆</Button>
+        </div>
+      </Form>
       {/* <Icon icon='coffee' theme='danger' size='1x' /> */}
       {/*  <Button onClick={
         (e) => {
@@ -76,6 +89,7 @@ function App() {
       <Upload
         targetLink=''
       ></Upload>
+
     </div>
   )
 }

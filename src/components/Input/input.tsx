@@ -21,7 +21,7 @@ export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size
 /**
  * Input 输入框 通过鼠标或键盘输入内容，是最基础的表单域的包装。
  * 
- * 支持 HTMLInput 的所有基本属性
+ * 支持 HTMLInput 的所有基本属性/
  */
 export const Input: FC<InputProps> = (props) => {
   const {

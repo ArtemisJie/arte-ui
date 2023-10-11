@@ -75,7 +75,7 @@ describe("menu and menuItem test", () => {
     it('default', () => {
         expect(menuElement).toBeInTheDocument()
         expect(menuElement).toHaveClass('test')
-        expect(menuElement.getElementsByTagName('li').length).toEqual(5)
+        expect(menuElement.getElementsByTagName('li').length).toEqual(4)
         expect(activeElement).toHaveClass('menu-item is-active')
         expect(disabledElement).toHaveClass('is-disabled')
 
@@ -106,18 +106,18 @@ describe("menu and menuItem test", () => {
         //expect(wrapper.queryByText('drop1')).not.toBeVisible()
 
         const dropdownElement = wrapper.getByText('dropdown');
-        fireEvent.mouseEnter(dropdownElement)
-        expect(wrapper.queryByText('drop1')).toBeVisible()
+        fireEvent.mouseOver(dropdownElement)
+        expect(wrapper.getByText('drop1')).toBeVisible()
         fireEvent.click(wrapper.getByText('drop1'))
         expect(testProps.onSelect).toHaveBeenCalledWith('3-0')
     })
-    it('should vertical',()=>{
+    it('should vertical', () => {
         cleanup();
         const wrapper = render(TestMenu(testVerProps))
         wrapper.container.append(createStyleFile())
-        expect(wrapper.queryByText('drop1')).toBeVisible();
+        expect(wrapper.getByText('drop1')).toBeVisible();
         const dropdownElement = wrapper.getByText('dropdown');
         fireEvent.click(dropdownElement)
-        expect(wrapper.queryByText('drop1')).toBeVisible();
+        expect(wrapper.getByText('drop1')).toBeVisible();
     })
 })

@@ -72,10 +72,17 @@ export default function useStore(initialValues?: Record<string, any>) {
         }
     }
     const resetFileds = () => {
+        Object.keys(fileds).map((key) => {
+            if (fileds[key]) {
+                let name = fileds[key].name
+                let value = '';
+                dispatch({ type: 'updateValue', name, value })
+            }
+        })
         if (initialValues) {
             each(initialValues, (value, name) => {
                 if (fileds[name]) {
-                    dispatch({ type: 'updateValidateResult', name, value })
+                    dispatch({ type: 'updateValue', name, value })
                 }
             })
         }
@@ -151,7 +158,7 @@ export default function useStore(initialValues?: Record<string, any>) {
         form,
         validateFiled,
         getFiledValue,
-        validateAllfieds, 
+        validateAllfieds,
         getFiledsValue,
         setFiledValue,
         resetFileds

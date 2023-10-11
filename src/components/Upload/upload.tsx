@@ -3,6 +3,7 @@ import axios from "axios";
 import Button from "../Button/button";
 import UploadList from "./uploadList";
 import Dragger from "./dragger";
+import { FormContext } from "../Form/form";
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 
 export interface UploadFile { //因为上传文件列表我们需要一个一个展示出来，所以另外定义一个接口UploadFile
@@ -32,10 +33,10 @@ export interface UploadProps {
     accept?: string; //'.jpg or .png ...
     multiple?: boolean; //upload more files
     drag?: boolean;
-    children?:ReactNode;
+    children?: ReactNode;
 }
 
-const Upload: FC<UploadProps> = (props) => {
+export const Upload: FC<UploadProps> = (props) => {
 
     const {
         targetLink,
@@ -95,7 +96,7 @@ const Upload: FC<UploadProps> = (props) => {
             if (!beforeUpload) {
                 post(file)
             } else {
-                const result = beforeUpload(file)
+                 const result = beforeUpload(file)
                 if (result && result instanceof Promise) {
                     result.then(processedFile => {
                         post(processedFile)
@@ -158,10 +159,10 @@ const Upload: FC<UploadProps> = (props) => {
     }
     return (
         <div className="upload-component">
-
             <div className="upload-input"
                 style={{ display: 'inline-block' }}
-                onClick={handleClick}>
+                onClick={handleClick}
+            >
                 {drag ?
                     <Dragger onFile={(files) => { uploadFiles(files) }}>
                         {children}
@@ -188,4 +189,4 @@ const Upload: FC<UploadProps> = (props) => {
 Upload.defaultProps = {
     name: 'file'
 }
-export default Upload
+export default Upload;

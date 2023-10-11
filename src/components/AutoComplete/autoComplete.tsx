@@ -24,15 +24,15 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     ...restProps
   } = props
 
-  const [ inputValue, setInputValue ] = useState(value as string)
-  const [ suggestions, setSugestions ] = useState<DataSourceType[]>([])
-  const [ loading, setLoading ] = useState(false)
-  const [ showDropdown, setShowDropdown] = useState(false)
-  const [ highlightIndex, setHighlightIndex] = useState(-1)
+  const [inputValue, setInputValue] = useState(value as string)
+  const [suggestions, setSugestions] = useState<DataSourceType[]>([])
+  const [loading, setLoading] = useState(false)
+  const [showDropdown, setShowDropdown] = useState(false)
+  const [highlightIndex, setHighlightIndex] = useState(-1)
   const triggerSearch = useRef(false)
   const componentRef = useRef<HTMLDivElement>(null)
   const debouncedValue = useDebounce(inputValue, 300)
-  useClickOutside(componentRef, () => { setSugestions([])})
+  useClickOutside(componentRef, () => { setSugestions([]) })
   useEffect(() => {
     if (debouncedValue && triggerSearch.current) {
       setSugestions([])
@@ -51,7 +51,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         setShowDropdown(true)
         if (results.length > 0) {
           setShowDropdown(true)
-        } 
+        }
       }
     } else {
       setShowDropdown(false)
@@ -66,7 +66,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
     setHighlightIndex(index)
   }
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    switch(e.keyCode) {
+    switch (e.keyCode) {
       case 13:
         if (suggestions[highlightIndex]) {
           handleSelect(suggestions[highlightIndex])
@@ -87,6 +87,8 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   }
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim()
+    console.log(value);
+
     setInputValue(value)
     triggerSearch.current = true
   }
@@ -107,12 +109,12 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         in={showDropdown || loading}
         animation="zoom-in-top"
         timeout={300}
-        onExited={() => {setSugestions([])}}
+        onExited={() => { setSugestions([]) }}
       >
         <ul className="suggestion-list">
-          { loading &&
+          {loading &&
             <div className="suggstions-loading-icon">
-              <Icon icon="spinner" spin/>
+              <Icon icon="spinner" spin />
             </div>
           }
           {suggestions.map((item, index) => {
@@ -137,7 +139,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         onKeyDown={handleKeyDown}
         {...restProps}
       />
-      {generateDropdown()}
+      {/* {generateDropdown()} */}
     </div>
   )
 }

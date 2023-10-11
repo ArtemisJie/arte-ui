@@ -38,7 +38,6 @@ export const Form = forwardRef<IFormRef, FormProps>((props, ref) => {
     const passContext: IFormContext = {
         dispatch,
         fileds,
-        // @ts-ignore
         initialValues,
         validateFiled
     }

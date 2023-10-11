@@ -1,7 +1,6 @@
 import classNames from "classnames";
 import React, { FC, ReactElement, ReactNode, useContext, useEffect } from "react";
 import { FormContext } from "./form";
-import { error, warn } from "console";
 import { CustomRule } from "./useStore";
 import { RuleItem } from 'async-validator'
 //Required表明这个值是必选的
@@ -41,7 +40,6 @@ export const FormItem: FC<FormItemProps> = (props) => {
     const filedState = fileds[name]
     const value = filedState && filedState.value
     const errors = filedState && filedState.errors
-
     const isRequired = rules?.some(rule => (typeof rule !== 'function') && rule.required)
     const hasError = errors && errors.length > 0
     const labelClass = classNames({
@@ -68,13 +66,13 @@ export const FormItem: FC<FormItemProps> = (props) => {
     //获取 children 数组的第一个元素
     const childList = React.Children.toArray(children)
     if (childList.length === 0) {
-        error('No child element found in FormItem, only one')
+        console.error('No child element found in FormItem, only one')
     }
     if (childList.length > 1) {
-        warn('too much child element, only one')
+        console.warn('too much child element, only one')
     }
     if (!React.isValidElement(childList[0])) {
-        error('Child element is not a valid React Element')
+        console.error('Child element is not a valid React Element')
     }
     const child = childList[0] as ReactElement
     //cloneElement，混个这个child以及手动的属性列表
@@ -87,7 +85,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
     )
     useEffect(() => {
         const value = (initialValues && initialValues[name]) || ''//初始值存在，且对应相应的fileds
-        dispatch({ type: 'addFiled', name, value: { label, name, value, rules: rules || [],errors:[], isValid: true } })
+        dispatch({ type: 'addFiled', name, value: { label, name, value, rules: rules || [], errors: [], isValid: true } })
     }, [])
     return (
         <div className={rowClass}>

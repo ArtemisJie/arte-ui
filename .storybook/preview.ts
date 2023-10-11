@@ -1,7 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import type { Preview } from "@storybook/react";
 import '../src/styles/index.scss'
-import {fas} from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
 const preview: Preview = {
   parameters: {
@@ -12,6 +12,7 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    viewMode: 'docs'
   },
 };
 
