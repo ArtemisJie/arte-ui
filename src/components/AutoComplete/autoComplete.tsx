@@ -151,7 +151,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         onKeyDown={handleKeyDown}
         {...restProps}
       />
-      {/* {generateDropdown()} */}
+      {generateDropdown()}
     </div>
   )
 }
