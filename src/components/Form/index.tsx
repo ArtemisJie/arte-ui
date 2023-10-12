@@ -1,13 +1,11 @@
-import { FC } from "react";
+import { FC } from 'react'
+import Form from './form'
+import Item, { FormItemProps } from './formItem'
 
-import Form, { FormProps } from "./form";
-import FormItem, { FormItemProps } from "./formItem";
-
-export type IFormComponent = typeof Form & {
+export type FormComponent = typeof Form & {
     Item: FC<FormItemProps>
 }
+const TransForm: FormComponent = Form as FormComponent
+TransForm.Item = Item
 
-const TransForm: IFormComponent = Form as IFormComponent
-TransForm.Item = FormItem
-
-export default TransForm
+export default TransForm;
