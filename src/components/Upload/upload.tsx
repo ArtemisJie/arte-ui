@@ -15,25 +15,40 @@ export interface UploadFile { //因为上传文件列表我们需要一个一个
     raw?: File;
     response?: unknown;
     error?: unknown;
-
 }
 
 export interface UploadProps {
+    /**必选参数, 上传的地址 */
     targetLink: string;
+    /**上传的文件列表,*/
+    defaultFileList?: UploadFile[];
+    /**上传文件之前的钩子，参数为上传的文件，若返回 false 或者 Promise 则停止上传。 */
     beforeUpload?: (file: File) => boolean | Promise<File>;
-    onProgress?: (percentage: number, file: File) => void;
-    onSuccess?: (data: any, file: File) => void;
-    onError?: (err: any, file: File) => void;
-    onChange?: (file: File) => void;
+    /**文件上传时的钩子 */
+    onProgress?: (percentage: number, file: UploadFile) => void;
+    /**文件上传成功时的钩子 */
+    onSuccess?: (data: any, file: UploadFile) => void;
+    /**文件上传失败时的钩子 */
+    onError?: (err: any, file: UploadFile) => void;
+    /**文件状态改变时的钩子，上传成功或者失败时都会被调用	 */
+    onChange?: (file: UploadFile) => void;
+    /**文件列表移除文件时的钩子 */
     onRemove?: (file: UploadFile) => void;
-    headers?: { [key: string]: any }; //axios
-    name?: string; //axios
-    data?: { [key: string]: any }; //axios
-    withCredentials?: boolean; //cookie?
-    accept?: string; //'.jpg or .png ...
-    multiple?: boolean; //upload more files
+    /**设置上传的请求头部 */
+    headers?: { [key: string]: any };
+    /**上传的文件字段名 */
+    name?: string;
+    /**上传时附带的额外参数 */
+    data?: { [key: string]: any };
+    /**支持发送 cookie 凭证信息 */
+    withCredentials?: boolean;
+    /**可选参数, 接受上传的文件类型 */
+    accept?: string;
+    /**是否支持多选文件 */
+    multiple?: boolean;
+    /**是否支持拖拽上传 */
     drag?: boolean;
-    children?: ReactNode;
+    children?: React.ReactNode
 }
 
 export const Upload: FC<UploadProps> = (props) => {
@@ -96,7 +111,7 @@ export const Upload: FC<UploadProps> = (props) => {
             if (!beforeUpload) {
                 post(file)
             } else {
-                 const result = beforeUpload(file)
+                const result = beforeUpload(file)
                 if (result && result instanceof Promise) {
                     result.then(processedFile => {
                         post(processedFile)
@@ -133,7 +148,7 @@ export const Upload: FC<UploadProps> = (props) => {
                 updateFilelist(_file, { percentage: percentage, status: 'uploading' })
                 if (percentage < 100) { //展示进度条
                     if (onProgress) {
-                        onProgress(percentage, file)
+                        onProgress(percentage, _file)
                     }
                 }
             }
@@ -141,19 +156,19 @@ export const Upload: FC<UploadProps> = (props) => {
             console.log(res);
             updateFilelist(_file, { status: 'success', response: res.data })
             if (onSuccess) {
-                onSuccess(res.data, file)
+                onSuccess(res.data, _file)
             }
             if (onChange) {
-                onChange(file)
+                onChange(_file)
             }
 
         }).catch(err => {
             updateFilelist(_file, { status: 'error', response: err.data })
             if (onError) {
-                onError(err, file)
+                onError(err, _file)
             }
             if (onChange) {
-                onChange(file)
+                onChange(_file)
             }
         })
     }
