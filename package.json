@@ -11,7 +11,7 @@
     "build": "npm run clean && vite build && npm run build-ts && npm run build-css",
     "preview": "vite preview",
     "clean": "rimraf ./dist",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "build-ts": "tsc -p tsconfig.build.json",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "storybook": "storybook dev -p 6006",
