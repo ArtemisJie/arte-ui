@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, fireEvent, screen, waitFor } from '@testing-library/react'
-
+import { render, fireEvent, screen, waitFor, RenderResult } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import Form, { FormProps } from './form'
 import Item from './formItem'
 import Input from '../Input'
@@ -14,10 +14,11 @@ const testProps: FormProps = {
   onFinishFailed: jest.fn()
 }
 let nameInput: HTMLInputElement, pwdInput: HTMLInputElement, conPwdInput: HTMLInputElement, submitButton: HTMLButtonElement
-
+let wrapper: RenderResult
 describe('testing Form component', () => {
   beforeEach(() => {
-    render(
+
+    wrapper = render(
       <Form
         {...testProps}
       >
@@ -65,7 +66,7 @@ describe('testing Form component', () => {
   it('should render the correct Form component', () => {
     const { getByText } = screen
     // should contains two labels
-    expect(getByText('Name')).toBeInTheDocument()
+    expect(wrapper.getByText('Name')).toBeInTheDocument()
     expect(getByText('Password')).toBeInTheDocument()
     expect(getByText('Confirm')).toBeInTheDocument()
     // should fill in three inputs

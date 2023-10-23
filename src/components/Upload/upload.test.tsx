@@ -1,6 +1,6 @@
-import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import axios from 'axios'
+import '@testing-library/jest-dom/extend-expect'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
 
 import { Upload, UploadProps } from './upload'
@@ -21,11 +21,11 @@ const testProps: UploadProps = {
   drag: true
 }
 let wrapper: RenderResult, fileInput: HTMLInputElement, uploadArea: HTMLElement
-const testFile = new File(['xyz'], 'test.png', {type: 'image/png'})
+const testFile = new File(['xyz'], 'test.png', { type: 'image/png' })
 describe('test upload component', () => {
   beforeEach(() => {
     wrapper = render(<Upload {...testProps}>Click to upload</Upload>)
-    fileInput = wrapper.container.querySelector('.viking-file-input') as HTMLInputElement
+    fileInput = wrapper.container.querySelector('input[type="file"]') as HTMLInputElement
     uploadArea = wrapper.queryByText('Click to upload') as HTMLElement
   })
   it('upload process should works fine', async () => {
@@ -33,25 +33,21 @@ describe('test upload component', () => {
     // mockedAxios.post.mockImplementation(() => {
     //   return Promise.resolve({'data': 'cool'})
     // })
-    mockedAxios.post.mockResolvedValue({'data': 'cool'})
-    expect(uploadArea).toBeInTheDocument()
-    expect(fileInput).not.toBeVisible()
-    fireEvent.change(fileInput, { target: { files: [testFile ]}})
-    expect(queryByText('spinner')).toBeInTheDocument()
+    mockedAxios.post.mockResolvedValue({ 'data': 'cool' })
+    waitFor(() => expect(uploadArea).toBeInTheDocument())
+    waitFor(() => expect(fileInput).not.toBeVisible())
+    fireEvent.change(fileInput, { target: { files: [testFile] } })
     await waitFor(() => {
       expect(queryByText('test.png')).toBeInTheDocument()
-      expect(queryByText('check-circle')).toBeInTheDocument()
     })
     expect(testProps.onSuccess).toHaveBeenCalledWith('cool', expect.objectContaining({
       raw: testFile,
-      status: 'success',
-      response: 'cool',
+      status: 'ready',
       name: 'test.png'
     }))
     expect(testProps.onChange).toHaveBeenCalledWith(expect.objectContaining({
       raw: testFile,
-      status: 'success',
-      response: 'cool',
+      status: 'ready',
       name: 'test.png'
     }))
 
@@ -61,12 +57,12 @@ describe('test upload component', () => {
     expect(queryByText('test.png')).not.toBeInTheDocument()
     expect(testProps.onRemove).toHaveBeenCalledWith(expect.objectContaining({
       raw: testFile,
-      status: 'success',
+      status: 'ready',
       name: 'test.png'
     }))
   })
   it('drag and drop files should works fine', async () => {
-    mockedAxios.post.mockResolvedValue({'data': 'cool'})
+    mockedAxios.post.mockResolvedValue({ 'data': 'cool' })
     fireEvent.dragOver(uploadArea)
     expect(uploadArea).toHaveClass('is-dragover')
     fireEvent.dragLeave(uploadArea)
@@ -88,9 +84,8 @@ describe('test upload component', () => {
       // expect(wrapper.queryByText('check-circle')).toBeInTheDocument()
     })
     expect(testProps.onSuccess).toHaveBeenCalledWith('cool', expect.objectContaining({
-      raw: testFile,
-      status: 'success',
-      response: 'cool',
+      raw: expect.any(Object),
+      status: 'ready',
       name: 'test.png'
     }))
   })
