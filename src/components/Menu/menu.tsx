@@ -1,21 +1,22 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, ReactNode, CSSProperties } from 'react'
 import classNames from 'classnames'
 import { MenuItemProps } from './menuItem'
 export type MenuType = "horizontal" | "vertical"
 /** 点击子菜单触发的回调 */
 type handleSelect = (selectIndex: string) => void
-
+type MenuMode = 'horizontal' | 'vertical'
 export interface MenuProps {
-    /** 默认 active 的菜单项索引值  */
-    defaultIndex?: string,
-    className?: string,
-    /** 菜单类型：纵向 / 横向 */
-    mode?: MenuType,
-    children?: React.ReactNode,
-    style?: React.CSSProperties,
-    /** 点击菜单项触发的回调函数 */
-    onSelect?: handleSelect,
-    defaultOpenSubMenus?: string[] //用来设置下拉菜单是否默认展开，以及展开哪些，因为 index 是string，所以此处用string[]
+    /**默认 active 的菜单项的索引值 */
+    defaultIndex?: string;
+    className?: string;
+    /**菜单类型 横向或者纵向 */
+    mode?: MenuMode;
+    style?: CSSProperties;
+    /**点击菜单项触发的回掉函数 */
+    onSelect?: (selectedIndex: string) => void;
+    /**设置子菜单的默认打开 只在纵向模式下生效 */
+    defaultOpenSubMenus?: string[]; //用来设置下拉菜单是否默认展开，以及展开哪些，因为 index 是string，所以此处用string[]
+    children?: ReactNode;
 }
 interface IMenuContext {
     index: string;
