@@ -1,25 +1,20 @@
+// tsconfig.json
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "es2022",
+    "moduleResolution": "node",
+
+    // vite 会读取到这个 tsconfig 文件(位于工作空间根目录)，按照其推荐配置这两个选项
+    // https://cn.vitejs.dev/guide/features.html#typescript-compiler-options
+    "isolatedModules": true,
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
-    "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "isolatedModules": false,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./",
-    "paths": {
-      "@/*":["packages/*"],
-    }
+    "forceConsistentCasingInFileNames":false
   },
-  "include": ["packages"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "files": [],
+
+  "references": [
+    // 聚合 ts project
+    { "path": "./tsconfig.src.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
 }
