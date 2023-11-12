@@ -1,41 +1,46 @@
 .storybook-button {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
   border: 0;
   border-radius: 3em;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
 }
+
 .storybook-button--primary {
   color: white;
   background-color: #1ea7fd;
 }
+
 .storybook-button--secondary {
   color: #333;
   background-color: transparent;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  box-shadow: rgb(0 0 0 / 15%) 0 0 0 1px inset;
 }
+
 .storybook-button--small {
-  font-size: 12px;
   padding: 10px 16px;
+  font-size: 12px;
 }
+
 .storybook-button--medium {
-  font-size: 14px;
   padding: 11px 20px;
+  font-size: 14px;
 }
+
 .storybook-button--large {
-  font-size: 16px;
   padding: 12px 24px;
+  font-size: 16px;
 }
 
 .storybook-header {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 15px 20px;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgb(0 0 0 / 10%);
 }
 
 .storybook-header svg {
@@ -44,11 +49,11 @@
 }
 
 .storybook-header h1 {
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
-  margin: 6px 0 6px 10px;
   display: inline-block;
+  margin: 6px 0 6px 10px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
   vertical-align: top;
 }
 
@@ -57,27 +62,27 @@
 }
 
 .storybook-header .welcome {
-  color: #333;
-  font-size: 14px;
   margin-right: 10px;
+  font-size: 14px;
+  color: #333;
 }
 
 .storybook-page {
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 24px;
+  max-width: 600px;
   padding: 48px 20px;
   margin: 0 auto;
-  max-width: 600px;
+  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
   color: #333;
 }
 
 .storybook-page h2 {
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1;
-  margin: 0 0 4px;
   display: inline-block;
+  margin: 0 0 4px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
   vertical-align: top;
 }
 
@@ -86,8 +91,8 @@
 }
 
 .storybook-page a {
-  text-decoration: none;
   color: #1ea7fd;
+  text-decoration: none;
 }
 
 .storybook-page ul {
@@ -101,36 +106,33 @@
 
 .storybook-page .tip {
   display: inline-block;
-  border-radius: 1em;
-  font-size: 11px;
-  line-height: 12px;
-  font-weight: 700;
-  background: #e7fdd8;
-  color: #66bf3c;
   padding: 4px 12px;
   margin-right: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 12px;
+  color: #66bf3c;
   vertical-align: top;
+  background: #e7fdd8;
+  border-radius: 1em;
 }
 
 .storybook-page .tip-wrapper {
-  font-size: 13px;
-  line-height: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
+  font-size: 13px;
+  line-height: 20px;
 }
 
 .storybook-page .tip-wrapper svg {
   display: inline-block;
-  height: 12px;
   width: 12px;
+  height: 12px;
+  margin-top: 3px;
   margin-right: 4px;
   vertical-align: top;
-  margin-top: 3px;
 }
 
 .storybook-page .tip-wrapper svg path {
   fill: #1ea7fd;
 }
-
-
-/*# sourceMappingURL=stories-Page-stories.a76d5758.chunk.css.map*/

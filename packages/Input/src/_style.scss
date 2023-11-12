@@ -1,26 +1,26 @@
 .input-wrapper {
+  position: relative;
   display: flex;
   width: 100%;
   margin-bottom: 30px;
-  position: relative;
+
   .icon-wrapper {
     position: absolute;
-    height: 100%;
-    width: 35px;
-    justify-content: center;
-    color: $input-color;
-    right: 0;
     top: 0;
+    right: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 100%;
+    color: $input-color;
+
     svg {
       color: $input-placeholder-color;
     }
   }
 }
-.icon-wrapper+.input-inner {
-  padding-right: 35px;
-}
+
 .input-inner {
   width: 100%;
   padding: $input-padding-y $input-padding-x;
@@ -35,7 +35,6 @@
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
   border-radius: $input-border-radius;
-
   box-shadow: $input-box-shadow;
   transition: $input-transition;
 
@@ -45,21 +44,43 @@
     border-color: $input-focus-border-color;
     outline: 0;
     box-shadow: $input-focus-box-shadow;
+
     // Avoid using mixin so we can pass custom focus shadow properly
   }
+
   &::placeholder {
     color: $input-placeholder-color;
+
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
+
   &:disabled,
   &[readonly] {
     background-color: $input-disabled-bg;
     border-color: $input-disabled-border-color;
+
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
 }
+
+.icon-wrapper + .input-inner {
+  padding-right: 35px;
+}
+
+.input-size-sm .input-inner {
+  padding: $input-padding-y-sm $input-padding-x-sm;
+  font-size: $input-font-size-sm;
+  border-radius: $input-border-radius-sm;
+}
+
+.input-size-lg .input-inner {
+  padding: $input-padding-y-lg $input-padding-x-lg;
+  font-size: $input-font-size-lg;
+  border-radius: $input-border-radius-lg;
+}
+
 .input-group-prepend,
 .input-group-append {
   display: flex;
@@ -76,10 +97,12 @@
   border: $input-border-width solid $input-group-addon-border-color;
   border-radius: $input-border-radius;
 }
+
 .input-group-append + .btn {
   padding: 0;
   border: 0;
 }
+
 .input-group > .input-group-prepend,
 .input-group.input-group-append > .input-inner {
   @include border-right-radius(0);
@@ -88,16 +111,4 @@
 .input-group > .input-group-append,
 .input-group.input-group-prepend > .input-inner {
   @include border-left-radius(0);
-}
-
-.input-size-sm .input-inner {
-  padding: $input-padding-y-sm $input-padding-x-sm;
-  font-size: $input-font-size-sm;
-  border-radius: $input-border-radius-sm;
-}
-
-.input-size-lg .input-inner {
-  padding: $input-padding-y-lg $input-padding-x-lg;
-  font-size: $input-font-size-lg;
-  border-radius: $input-border-radius-lg;
 }

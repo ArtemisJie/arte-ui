@@ -1,88 +1,87 @@
 .upload-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 .uploader-dragger {
-    background: $gray-100;
-    border: 1px dashed $gray-300;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 20px;
-    width: 360px;
-    height: 180px;
-    text-align: center;
+  width: 360px;
+  height: 180px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background: $gray-100;
+  border: 1px dashed $gray-300;
+  border-radius: 4px;
 
-    &:hover {
-        border: 1px dashed $primary;
-    }
+  &:hover {
+    border: 1px dashed $primary;
+  }
 
-    &.is-dragover {
-        border: 2px dashed $primary;
-        background: rgba($primary, .2);
-    }
+  &.is-dragover {
+    background: rgba($primary, 0.2);
+    border: 2px dashed $primary;
+  }
 }
 
-
 .upload-list-item {
-    transition: all .5s cubic-bezier(.55, 0, .1, 1);
-    font-size: 14px;
-    line-height: 1.8;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border-radius: 4px;
-    min-width: 200px;
-    position: relative;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 200px;
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 1.8;
+  border-radius: 4px;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
 
-    &:first-child {
-        margin-top: 10px;
+  &:first-child {
+    margin-top: 10px;
+  }
+
+  .file-name {
+    margin-right: 40px;
+    margin-left: 5px;
+
+    svg {
+      margin-right: 5px;
+      color: $gray-500;
     }
+  }
 
-    .file-name {
-        margin-left: 5px;
-        margin-right: 40px;
+  .file-name-error {
+    color: $danger;
 
-        svg {
-            margin-right: 5px;
-            color: $gray-500;
-        }
+    svg {
+      color: $danger;
     }
+  }
 
-    .file-name-error {
-        color: $danger;
+  .file-status {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    display: block;
+    line-height: inherit;
+  }
 
-        svg {
-            color: $danger;
-        }
-    }
+  .file-actions {
+    position: absolute;
+    top: 0;
+    right: 7px;
+    display: none;
+    line-height: inherit;
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: $gray-200;
 
     .file-status {
-        display: block;
-        position: absolute;
-        right: 5px;
-        top: 0;
-        line-height: inherit;
+      display: none;
     }
 
     .file-actions {
-        display: none;
-        position: absolute;
-        right: 7px;
-        top: 0;
-        line-height: inherit;
-        cursor: pointer;
+      display: block;
     }
-
-    &:hover {
-        background-color: $gray-200;
-
-        .file-status {
-            display: none;
-        }
-
-        .file-actions {
-            display: block;
-        }
-    }
+  }
 }

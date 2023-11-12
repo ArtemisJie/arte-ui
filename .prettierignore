@@ -1,0 +1,6 @@
+# .prettierignore
+node_modules
+dist
+.storybook
+storybook-static
+test

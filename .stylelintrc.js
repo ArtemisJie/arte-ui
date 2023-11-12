@@ -1,15 +1,15 @@
-"use strict";
 module.exports = {
-  ignoreFiles: [
-    "./**",
-    "!./client/views/**/*.vue",
-    "!./client/views/**/*.scss",
-    "!./client/styles/**/*.scss",
-    "!./client/plugin/**/*.vue",
-    "!./client/plugin/**/*.scss"
+  // 继承的预设，这些预设包含了规则集插件
+  extends: [
+    // 代码风格规则
+    'stylelint-stylistic/config',
+    // 基本 scss 规则
+    'stylelint-config-standard-scss',
+    // 样式属性顺序规则
+    'stylelint-config-recess-order',
   ],
-  extends: ["stylelint-config-standard"],
   rules: {
-      // 这里可以覆盖一些配置
-  }
+    // 自定义规则集的启用 / 禁用
+    'stylistic/max-line-length': 160,
+  },
 };

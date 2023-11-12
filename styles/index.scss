@@ -1,31 +1,11 @@
-@import 'variable';
-
-//mixin
-@import 'mixin';
-
-//animation
-@import 'animation';
-
-//button
-@import '../components/Button/style';
-
-//menu
-@import '../components/Menu/style';
-
-//icon
-@import '../components/Icon/style';
-
-//input
-@import '../components/Input/style';
-
-//autoComplete
-@import '../components/AutoComplete/style';
-
-//upload
-@import '../components/Upload/style';
-
-//progress
-@import '../components/Progress/style';
-
-//form
-@import '../components/Form/style';
+@import "variable";
+@import "mixin";
+@import "animation";
+@import "../components/Button/style";
+@import "../components/Menu/style";
+@import "../components/Icon/style";
+@import "../components/Input/style";
+@import "../components/AutoComplete/style";
+@import "../components/Upload/style";
+@import "../components/Progress/style";
+@import "../components/Form/style";

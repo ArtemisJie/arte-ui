@@ -1,3 +1,20 @@
+/* stylelint-disable no-descending-specificity */
+.menu-horizontal {
+  >.menu-item {
+    border-bottom: $menu-item-active-border-width solid transparent;
+  }
+
+  .submenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 100;
+    background: $white;
+    border: $menu-border-width solid $menu-border-color;
+    box-shadow: $submenu-box-shadow;
+  }
+}
+
 .menu {
   display: flex;
   flex-wrap: wrap;
@@ -30,6 +47,12 @@
     }
   }
 
+  .is-vertical {
+    .arrow-icon {
+      transform: rotate(0deg) !important;
+    }
+  }
+
   .submenu-item {
     position: relative;
 
@@ -39,20 +62,14 @@
     }
 
     .arrow-icon {
-      transition: transform .25s ease-in-out;
       margin-left: 3px;
+      transition: transform 0.25s ease-in-out;
     }
 
     &:hover {
       .arrow-icon {
         transform: rotate(180deg);
       }
-    }
-  }
-
-  .is-vertical {
-    .arrow-icon {
-      transform: rotate(0deg) !important;
     }
   }
 
@@ -63,19 +80,20 @@
   }
 
   .submenu {
-    //display: none;  //*因为加入了react的csstransition组件
-    list-style: none;
     padding-left: 0;
     white-space: nowrap;
+
+    // display: none;  //*因为加入了react的csstransition组件
+    list-style: none;
     opacity: 0;
     transition: $menu-transition;
     transition: opacity 0.5s ease-in;
 
     .menu-item {
       padding: $menu-item-padding-y $menu-item-padding-x;
+      color: $body-color;
       cursor: pointer;
       transition: $menu-transition;
-      color: $body-color;
 
       &.is-active,
       &:hover {
@@ -84,41 +102,24 @@
     }
   }
 
-
   .submenu.menu-opened {
     // display: block !important;
     opacity: 1;
   }
 }
 
-.menu-horizontal {
-  >.menu-item {
-    border-bottom: $menu-item-active-border-width solid transparent;
-  }
-
-  .submenu {
-    position: absolute;
-    background: $white;
-    z-index: 100;
-    top: calc(100% + 8px);
-    left: 0;
-    border: $menu-border-width solid $menu-border-color;
-    box-shadow: $submenu-box-shadow;
-  }
-}
-
 .menu-vertical {
   flex-direction: column;
-  border-bottom: 0px;
   margin: 10px 20px;
   border-right: $menu-border-width solid $menu-border-color;
+  border-bottom: 0;
 
   >.menu-item {
     border-left: $menu-item-active-border-width solid transparent;
 
     &.is-active,
     &:hover {
-      border-bottom: 0px;
+      border-bottom: 0;
       border-left: $menu-item-active-border-width solid $menu-item-active-color;
     }
   }
