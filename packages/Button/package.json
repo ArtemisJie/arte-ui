@@ -1,0 +1,22 @@
+{
+  "name": "@arte-ui/button",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vite build"
+  },
+  "keywords": [
+    "react",
+    "ui"
+  ],
+  "peerDependencies": {
+    "react": "",
+    "react-dom": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+  }
+}

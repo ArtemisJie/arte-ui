@@ -1,0 +1,29 @@
+{
+  "name": "@arte-ui/ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "@arte-ui/autoComplete": "workspace:^1.0.0",
+    "@arte-ui/button": "workspace:^1.0.0",
+    "@arte-ui/form": "workspace:^1.0.0",
+    "@arte-ui/hooks": "workspace:^1.0.0",
+    "@arte-ui/icon": "workspace:^1.0.0",
+    "@arte-ui/input": "workspace:^1.0.0",
+    "@arte-ui/menu": "workspace:^1.0.0",
+    "@arte-ui/progress": "workspace:^1.0.0",
+    "@arte-ui/transition": "workspace:^1.0.0",
+    "@arte-ui/upload": "workspace:^1.0.0"
+  }
+}

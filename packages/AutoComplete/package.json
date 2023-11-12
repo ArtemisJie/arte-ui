@@ -1,0 +1,18 @@
+{
+  "name": "@arte-ui/autoComplete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build":"vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@arte-ui/hooks": "workspace:^1.0.0",
+    "@arte-ui/icon": "workspace:^1.0.0",
+    "@arte-ui/transition": "workspace:^1.0.0"
+  }
+}
