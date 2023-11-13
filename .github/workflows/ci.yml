@@ -17,9 +17,9 @@ jobs:
           node-version: "16.x"
       # 安装依赖
       - name: Install Dependencies
-        run: pnpm install
+        run: npm install
       # 运行代码扫描
       - name: Running Lint
-        run: pnpm run lint
+        run: npm run lint
       
 
