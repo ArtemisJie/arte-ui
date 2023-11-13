@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "./dist/arteui-ui.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"vite build"
+    "build": "pnpm run clean && vite build",
+    "clean": "rimraf ./dist"
   },
   "keywords": [],
   "author": "",

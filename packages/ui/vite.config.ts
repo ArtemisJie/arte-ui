@@ -8,12 +8,19 @@ export default defineConfig({
       entry: './src/index.tsx',
       name: 'arteuiUi',
       fileName: 'arteui-ui',
+      formats:['es']
     },
     minify: false,
     rollupOptions: {
       external: [
         /@arte-ui.*/
       ],
+      output:{
+        format:"es",
+        dir:"dist"
+      },
+      
     },
+
   }
 })
