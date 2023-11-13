@@ -44,7 +44,7 @@ const TestMenu = (props: MenuProps) => {
 }
 
 const createStyleFile = () => {
-    const cssFile: string = `
+    const cssFile = `
     .submenu {
         opacity: 0;
     }

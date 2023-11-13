@@ -3,12 +3,12 @@ import classNames from 'classnames'
 import Input, { InputProps } from '../../Input/src/input'
 import Icon from '@arte-ui/icon'
 import Transition from '@arte-ui/transition'
-import useDebounce from '@arte-ui/hooks'
-import useClickOutside from '@arte-ui/hooks'
+import {useDebounce} from '@arte-ui/hooks'
+import {useClickOutside} from '@arte-ui/hooks'
 interface DataSourceObject {
   value: string;
 }
-export type DataSourceType<T = {}> = T & DataSourceObject
+export type DataSourceType<T = Record<string, never>> = T & DataSourceObject
 export interface AutoCompleteProps extends Omit<InputProps, 'onSelect' | 'onChange'> {
   /**
    * 返回输入建议的方法，可以拿到当前的输入，然后返回同步的数组或者是异步的 Promise

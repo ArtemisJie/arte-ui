@@ -3,7 +3,6 @@ module.exports = {
   env: {
     es6: true,
   },
-  plugin: ['react'],
   extends: ["plugin:storybook/recommended", "plugin:@typescript-eslint/recommended"],
   parser: '@typescript-eslint/parser',
   parserOptions: { "project": ["./tsconfig.json"] },

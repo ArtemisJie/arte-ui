@@ -104,7 +104,7 @@ export const Upload: FC<UploadProps> = (props) => {
         }
     }
     const uploadFiles = (files: FileList) => {
-        let postFiles = Array.from(files)
+        const postFiles = Array.from(files)
         postFiles.map(file => {
             if (!beforeUpload) {
                 post(file)
@@ -119,7 +119,7 @@ export const Upload: FC<UploadProps> = (props) => {
         })
     }
     const post = (file: File) => {
-        let _file: UploadFile = {
+        const _file: UploadFile = {
             fid: Date.now().toString(),
             status: 'ready',
             size: file.size,
@@ -142,7 +142,7 @@ export const Upload: FC<UploadProps> = (props) => {
             },
             withCredentials,
             onUploadProgress: (e) => {
-                let percentage = Math.round((e.loaded * 100) / (e.total as number)) || 0;
+                const percentage = Math.round((e.loaded * 100) / (e.total as number)) || 0;
                 updateFilelist(_file, { percentage: percentage, status: 'uploading' })
                 if (percentage < 100) { //展示进度条
                     if (onProgress) {

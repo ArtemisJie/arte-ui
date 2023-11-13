@@ -4,11 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build:ui": "pnpm --filter ./packages/** run build",
     "lint:style": "stylelint --fix ./**/*.{css,scss}",
+    "lint:script": "eslint --ext .js,.jsx,.ts,.tsx, --fix ./",
     "lint-staged": "lint-staged",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "pnpm run lint:script",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "pnpm run lint:style"
+    ]
   },
   "dependencies": {
     "@babel/preset-react": "^7.18.6",

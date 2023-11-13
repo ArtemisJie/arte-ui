@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, createContext, forwardRef, useImperativeHandle } from "react";
+import React, { ReactNode, createContext, forwardRef, useImperativeHandle } from "react";
 import useStore, { FormState } from "./useStore";
 import { ValidateError } from 'async-validator'
 
@@ -7,12 +7,12 @@ export type RenderProps = (form: FormState) => ReactNode
 export interface FormProps {
     name?: string;
     /**表单默认值，只有初始化以及重置时生效 */
-    initialValues?: Record<string, any>;
+    initialValues?: Record<string, unknown>;
     children?: ReactNode | RenderProps;
     /**提交表单且数据验证成功后回调事件 */
-    onFinsh?: (values: Record<string, any>) => void;
+    onFinsh?: (values: Record<string, unknown>) => void;
     /**提交表单且数据验证失败后回调事件 */
-    onFinshFailed?: (values: Record<string, any>, errors: Record<string, ValidateError[]>) => void;
+    onFinshFailed?: (values: Record<string, unknown>, errors: Record<string, ValidateError[]>) => void;
 }
 
 export type IFormContext = Pick<ReturnType<typeof useStore>, 'dispatch' | 'fileds' | 'validateFiled'> //利用ReturnType获取一个函数返回的的所有类型，再利用Pick获取某一个的类型

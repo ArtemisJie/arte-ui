@@ -3,12 +3,15 @@
   "compilerOptions": {
     "target": "es2022",
     "moduleResolution": "node",
-
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
     // vite 会读取到这个 tsconfig 文件(位于工作空间根目录)，按照其推荐配置这两个选项
     // https://cn.vitejs.dev/guide/features.html#typescript-compiler-options
     "isolatedModules": true,
     "useDefineForClassFields": true,
-    "forceConsistentCasingInFileNames":false
+    "forceConsistentCasingInFileNames": false
   },
   "files": [],
 
@@ -16,5 +19,5 @@
     // 聚合 ts project
     { "path": "./tsconfig.src.json" },
     { "path": "./tsconfig.node.json" }
-  ],
+  ]
 }

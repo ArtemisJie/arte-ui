@@ -3,7 +3,6 @@ import Schema, { RuleItem, ValidateError } from "async-validator";
 import { mapValues, each } from "lodash-es";
 
 
-//@ts-ignore
 export type CustomRuleFunc = ({ getFiledValue }) => RuleItem
 export type CustomRule = RuleItem | CustomRuleFunc
 export interface FiledDetail {
@@ -74,8 +73,8 @@ export default function useStore(initialValues?: Record<string, any>) {
     const resetFileds = () => {
         Object.keys(fileds).map((key) => {
             if (fileds[key]) {
-                let name = fileds[key].name
-                let value = '';
+                const name = fileds[key].name
+                const value = '';
                 dispatch({ type: 'updateValue', name, value })
             }
         })
