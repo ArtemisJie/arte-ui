@@ -9,6 +9,7 @@ export default defineConfig({
       name: 'arteuiTransition',
       fileName: 'arteui-transition',
     },
+    
     minify: false,
     rollupOptions: {
       external: [
@@ -17,6 +18,10 @@ export default defineConfig({
         'react',
         "react-dom"
       ],
+      output:{
+        format:"es",
+        dir:"dist"
+      }
     },
   }
 })

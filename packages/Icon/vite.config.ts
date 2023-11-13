@@ -16,6 +16,10 @@ export default defineConfig({
         'react',
         "react-dom"
       ],
+      output:{
+        format:"es",
+        dir:"dist"
+      }
     },
   }
 })

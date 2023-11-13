@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "module": "./dist/arteui-autoComplete.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"vite build"
