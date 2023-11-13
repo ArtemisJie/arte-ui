@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, fireEvent, screen, waitFor, RenderResult } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Form, { FormProps } from './form'
-import Item from './formItem'
-import Input from '../Input'
+import Form, { FormProps } from '../src/form'
+import Item from '../src/formItem'
+import Input from '../../Input/src/input'
 import Button from '../../Button/src'
 
 const testProps: FormProps = {

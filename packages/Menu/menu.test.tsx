@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, RenderResult, fireEvent, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import Menu, { MenuProps } from './menu'
-import MenuItem from './menuItem'
-import SubMenu from './subMenu'
+import Menu, { MenuProps } from './src/menu'
+import MenuItem from './src/menuItem'
+import SubMenu from './src/subMenu'
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 const testProps: MenuProps = {

@@ -1,9 +1,8 @@
-import React, { createContext, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import classNames from 'classnames'
-import { MenuContext, MenuType } from './menu'
+import { MenuContext} from './menu'
 import { MenuItemProps } from './menuItem';
-import { CSSTransition } from 'react-transition-group';
-import Icon from '@arte-ui/icon';
+import Icon from '../../Icon/src/icon';
 import Transition from '../../Transition/src/transition';
 
 export interface subMenuProps {

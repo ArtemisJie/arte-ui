@@ -3,9 +3,9 @@ import axios from 'axios'
 import '@testing-library/jest-dom/extend-expect'
 import { render, RenderResult, fireEvent, waitFor } from '@testing-library/react'
 
-import { Upload, UploadProps } from './upload'
+import { Upload, UploadProps } from '../../Upload/src/upload'
 
-jest.mock('../Icon/icon', () => {
+jest.mock('../../Icon/src/icon.tsx', () => {
   return (props: any) => {
     return <span onClick={props.onClick}>{props.icon}</span>
   }

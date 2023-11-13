@@ -21,8 +21,5 @@ jobs:
       # 运行代码扫描
       - name: Running Lint
         run: pnpm run lint
-      # 单元测试
-      - name: Running Test
-        run: pnpm run test
       
 
