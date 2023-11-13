@@ -9,6 +9,9 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   "parserOptions": {
     "sourceType": "module",
+  },
+  rules: {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "suppressImplicitAnyIndexErrors": true
   }
-  /*   rules: [] */
 };

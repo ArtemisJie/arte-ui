@@ -2,7 +2,7 @@ import { useReducer, useState } from "react";
 import Schema, { RuleItem, ValidateError } from "async-validator";
 import { mapValues, each } from "lodash-es";
 
-
+//@ts-ignore !
 export type CustomRuleFunc = ({ getFiledValue }) => RuleItem
 export type CustomRule = RuleItem | CustomRuleFunc
 export interface FiledDetail {
