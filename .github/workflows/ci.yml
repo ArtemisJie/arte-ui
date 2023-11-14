@@ -15,11 +15,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
+      #安装pnpm
+      - name: install pnpm
+        run: npm i pnpm
       # 安装依赖
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install 
       # 运行代码扫描
       - name: Running Lint
-        run: npm run lint
+        run: pnpm run lint
       
 
