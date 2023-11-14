@@ -15,9 +15,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-      #安装pnpm
-      - name: install pnpm
-        run: npm i pnpm
+      
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        with:
+          version: 8
+          run_install: false
       # 安装依赖
       - name: Install Dependencies
         run: pnpm install 
