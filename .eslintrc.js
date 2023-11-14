@@ -11,7 +11,6 @@ module.exports = {
     "sourceType": "module",
   },
   rules: {
-    "@typescript-eslint/ban-ts-comment": "off",
-    "suppressImplicitAnyIndexErrors": true
+    "@typescript-eslint/ban-ts-comment": "off"
   }
 };
