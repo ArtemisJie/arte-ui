@@ -10,7 +10,5 @@
   "include": [
     "typings/env.d.ts",
     "packages/**/src",
-    "packages/upload/src/index.tsx",
-    "packages/ui/src/index.tsx"
   ]
 }

@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import  { FC } from "react";
 import Menu, { MenuProps } from "./menu";
 import SubMenu, { subMenuProps } from "./subMenu";
 import MenuItem, { MenuItemProps } from "./menuItem";
-
+import '../styles/index.scss'
 
 export type MenuComponent = FC<MenuProps> & {
     Item: FC<MenuItemProps>,
