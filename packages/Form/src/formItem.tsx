@@ -16,7 +16,7 @@ export interface FormItemProps {
     /**设置收集字段值变更的时机 */
     trigger?: string;
     /**设置如何将 event 的值转换成字段值 */
-    getValueFromEvent?: (event:unknown) => void ;
+    getValueFromEvent?: (event: React.ChangeEvent<HTMLInputElement>) => void ;
     /**校验规则，设置字段的校验逻辑。请看 async validator 了解更多规则 */
     rules?: CustomRule[];
     /**设置字段校验的时机 */
@@ -50,7 +50,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
     const itemClass = classNames('form-item-control', {
         'form-item-has-errors': hasError
     })
-    const onValueUpdate = (e: unknown) => {
+    const onValueUpdate = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = getValueFromEvent(e) //默认input是e.target.value,但checkbox是.check
         // console.log('new value', value)
         dispatch({ type: 'updateValue', name, value })
@@ -117,7 +117,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
 FormItem.defaultProps = {
     valuePropName: 'value',
     trigger: 'onChange',
-    getValueFromEvent: (e) => e.target.value,//如果是checkbox类型，则是e.target.check
+    getValueFromEvent: (e: React.ChangeEvent<HTMLInputElement>) => e.target?.value, //如果是checkbox类型，则是e.target.check
     validateTrigger: 'onBlur',
 }
 export default FormItem

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from '@testing-library/react'
-import Button, { ButtonType, ButtonSize } from "../src/button";
-import '@testing-library/jest-dom'
+import Button from "../src/index";
+import '@testing-library/jest-dom/extend-expect'
 import { ButtonProps } from "../src/button";
 //import { mock } from "node:test";
 

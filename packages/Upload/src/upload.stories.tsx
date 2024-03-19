@@ -1,6 +1,4 @@
-import React from "react";
 import { Meta, StoryObj } from "@storybook/react";
-import { action } from '@storybook/addon-actions'
 import Icon from "@arte-ui/icon";
 import Upload from "./upload";
 
@@ -18,8 +16,8 @@ export const UploadFile: Story = {
         return (
             <Upload
                 targetLink="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                onChange={action('changed')}
-                onRemove={action('removed')}
+                // onChange={action('changed')}
+                // onRemove={action('removed')}
                 name="fileName"
                 multiple
                 drag

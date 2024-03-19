@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, fireEvent, screen, waitFor, RenderResult } from '@testing-library/react'
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom/extend-expect'; 
 import Form, { FormProps } from '../src/form'
 import Item from '../src/formItem'
 import Input from '../../Input/src/input'

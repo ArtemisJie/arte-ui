@@ -4,6 +4,7 @@
   "description": "",
   "main": "./dist/arteui-ui.umd.js",
   "module": "./dist/arteui-ui.mjs",
+  "types": "./dist/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "pnpm run clean && vite build",

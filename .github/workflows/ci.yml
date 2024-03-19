@@ -24,8 +24,8 @@ jobs:
       # 安装依赖
       - name: Install Dependencies
         run: pnpm install 
-      # 运行代码扫描
-      - name: Running Lint
-        run: pnpm run lint
+      # 测试代码
+      - name: Running test
+        run: pnpm run test
       
 

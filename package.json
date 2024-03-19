@@ -2,12 +2,13 @@
   "name": "arte-ui",
   "private": "true",
   "scripts": {
-    "build": "pnpm --filter \"./packages/**\" run build",
+    "build": "npx tsc -p tsconfig.src.json --composite false --declaration --emitDeclarationOnly && pnpm --filter \"./packages/**\" run build",
     "lint:style": "stylelint --fix ./**/*.{css,scss}",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx, --fix ./",
     "lint-staged": "lint-staged",
     "lint": "pnpm run lint:script && pnpm run lint:style",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --roots packages --testMatch='**/*.test.{js,jsx,ts,tsx}'"
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --roots packages --testMatch='**/*.test.{js,jsx,ts,tsx}'",
+    "storybook":"storybook dev -h 127.0.0.1 -p 6006"
   },
   "husky": {
     "hooks": {

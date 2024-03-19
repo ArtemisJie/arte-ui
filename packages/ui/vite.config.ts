@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
+  
   // 增加插件的使用
   build: {
     lib: {

@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { UploadFile } from './upload'
 import Icon from '@arte-ui/icon'
+
 import Progress from '@arte-ui/progress'
 interface UploadListProps {
     fileList: UploadFile[];

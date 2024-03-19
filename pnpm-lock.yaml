@@ -508,6 +508,9 @@ importers:
       '@arte-ui/progress':
         specifier: workspace:^
         version: link:../progress
+      addon-actions:
+        specifier: link:@types/storybook/addon-actions
+        version: link:@types/storybook/addon-actions
       react:
         specifier: ^18.2.0
         version: 18.2.0

@@ -18,6 +18,7 @@
   "dependencies": {
     "@arte-ui/form": "workspace:^1.0.0",
     "@arte-ui/icon": "workspace:^",
-    "@arte-ui/progress": "workspace:^"
+    "@arte-ui/progress": "workspace:^",
+    "addon-actions": "link:@types/storybook/addon-actions"
   }
 }

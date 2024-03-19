@@ -1,6 +1,5 @@
 import React, { FC } from 'react'
-import { ThemeProps } from '@arte-ui/icon'
-
+export type ThemeProps = 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'danger' | 'light' | 'dark';
 
 export interface ProgressProps {
   percent: number;
