@@ -1,0 +1,12 @@
+{
+  "name": "storybooks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "storybook": "storybook dev -h 127.0.0.1 -p 6006"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
