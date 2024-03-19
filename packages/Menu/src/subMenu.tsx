@@ -18,7 +18,6 @@ const SubMenu: React.FC<subMenuProps> = (props) => {
         title,
         className,
         children,
-        ...restprops
     } = props;
 
     const context = useContext(MenuContext);

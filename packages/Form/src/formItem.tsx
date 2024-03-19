@@ -2,7 +2,6 @@ import classNames from "classnames";
 import React, { FC, ReactElement, ReactNode, useContext, useEffect } from "react";
 import { FormContext } from "./form";
 import { CustomRule } from "./useStore";
-import { RuleItem } from 'async-validator'
 //Required表明这个值是必选的
 //Omit可以忽略掉取出来的一部分
 export type SomeRequired<T, K extends keyof T> = Required<Pick<T, K>> & Omit<T, K>
@@ -17,7 +16,7 @@ export interface FormItemProps {
     /**设置收集字段值变更的时机 */
     trigger?: string;
     /**设置如何将 event 的值转换成字段值 */
-    getValueFromEvent?: (event: any) => any;
+    getValueFromEvent?: (event:unknown) => void ;
     /**校验规则，设置字段的校验逻辑。请看 async validator 了解更多规则 */
     rules?: CustomRule[];
     /**设置字段校验的时机 */
@@ -34,7 +33,6 @@ export const FormItem: FC<FormItemProps> = (props) => {
         getValueFromEvent,
         rules,
         validateTrigger,
-        ...restProps
     } = props as SomeRequired<FormItemProps, 'getValueFromEvent' | 'trigger' | 'valuePropName' | 'validateTrigger'>
     const { dispatch, fileds, initialValues, validateFiled } = useContext(FormContext)
     const rowClass = classNames('row', {
@@ -52,7 +50,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
     const itemClass = classNames('form-item-control', {
         'form-item-has-errors': hasError
     })
-    const onValueUpdate = (e: any) => {
+    const onValueUpdate = (e: unknown) => {
         const value = getValueFromEvent(e) //默认input是e.target.value,但checkbox是.check
         // console.log('new value', value)
         dispatch({ type: 'updateValue', name, value })
@@ -61,7 +59,7 @@ export const FormItem: FC<FormItemProps> = (props) => {
         await validateFiled(name)
     }
     //创建一个属性列表
-    const controlProps: Record<string, any> = {}
+    const controlProps: Record<string, unknown> = {}
     controlProps[valuePropName] = value //加!号是因为，valuePropName理应不是非空的，但是在定义的时候这个值是可选的，所以会出现一个undefined，但是属性不允许是undefined，所以加一个！（非空判定符）来表明这个不会是undefined
     controlProps[trigger] = onValueUpdate
     if (rules) {

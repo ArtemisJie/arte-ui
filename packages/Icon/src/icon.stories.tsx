@@ -1,5 +1,3 @@
-import React from 'react'
-import { ComponentMeta } from '@storybook/react'
 import Icon from './icon'
 import Button from '../../button/src'
 import { library } from '@fortawesome/fontawesome-svg-core'

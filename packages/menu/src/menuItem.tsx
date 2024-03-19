@@ -16,7 +16,6 @@ const MenuItem: React.FC<MenuItemProps> = (props) => {
         className,
         style,
         children,
-        ...restProps
     } = props;
 
     const context = useContext(MenuContext) //context有了之后，就可以知道哪个子选项应该高亮

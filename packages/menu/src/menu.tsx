@@ -34,7 +34,6 @@ export const Menu: React.FC<MenuProps> = (props) => {
         defaultIndex,
         onSelect,
         defaultOpenSubMenus,
-        ...restProps
     } = props;
     const [active, setActive] = useState<string>(defaultIndex as string)
 
