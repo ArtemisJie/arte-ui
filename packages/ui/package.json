@@ -2,7 +2,7 @@
   "name": "@arte-ui/ui",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/arteui-ui.umd.js",
   "module": "./dist/arteui-ui.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

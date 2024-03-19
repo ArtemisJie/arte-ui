@@ -1,4 +1,3 @@
-// packages/button/vite.config.ts
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -8,7 +7,6 @@ export default defineConfig({
       entry: './src/index.tsx',
       name: 'arteuiUi',
       fileName: 'arteui-ui',
-      formats:['es']
     },
     minify: false,
     rollupOptions: {
@@ -19,7 +17,6 @@ export default defineConfig({
         format:"es",
         dir:"dist"
       },
-      
     },
 
   }
