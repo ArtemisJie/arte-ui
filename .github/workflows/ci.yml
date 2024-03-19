@@ -23,7 +23,7 @@ jobs:
           run_install: false
       # 安装依赖
       - name: Install Dependencies
-        run: pnpm install 
+        run: pnpm -w i 
       # 测试代码
       - name: Running test
         run: pnpm run test
