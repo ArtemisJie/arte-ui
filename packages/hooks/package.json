@@ -2,6 +2,8 @@
     "name": "@arte-ui/hooks",
     "version": "1.0.0",
     "description": "",
+    "main": "./dist/arteui-hooks.umd.js",
+    "module": "./dist/arteui-hooks.mjs",
     "keywords": [
       "react",
       "ui"

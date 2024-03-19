@@ -12,5 +12,8 @@ export default defineConfig({
             fileName: 'arteui-hooks',
         },
         minify: false,
+        rollupOptions:{
+        external:[/react.*/]
+        }
     }
 })

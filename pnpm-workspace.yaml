@@ -1,3 +1,5 @@
 packages:
   # all components
   - packages/*
+  - storybook-static
+  - demo

@@ -5,10 +5,12 @@
     "composite": true,
     // 组件库依赖浏览器的 DOM API
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["node"],
+    "types": ["node"]
   },
   "include": [
     "typings/env.d.ts",
-    "packages/**/src"
-  ],
+    "packages/**/src",
+    "packages/upload/src/index.tsx",
+    "packages/ui/src/index.tsx"
+  ]
 }

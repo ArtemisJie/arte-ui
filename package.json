@@ -1,15 +1,12 @@
 {
   "name": "arte-ui",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
-    "build:ui": "pnpm --filter ./packages/** run build",
+    "build": "pnpm --filter \"./packages/**\" run build",
     "lint:style": "stylelint --fix ./**/*.{css,scss}",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx, --fix ./",
     "lint-staged": "lint-staged",
-    "lint":"pnpm run lint:script && pnpm run lint:style",
-    "build": "vite build",
+    "lint": "pnpm run lint:script && pnpm run lint:style",
     "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --roots packages --testMatch='**/*.test.{js,jsx,ts,tsx}'"
   },
   "husky": {
@@ -61,7 +58,7 @@
     "@storybook/react-vite": "^7.1.1",
     "@storybook/react-webpack5": "^7.0.18",
     "@storybook/testing-library": "^0.0.14-next.2",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^14.0.0",
     "@types/gulp": "^4.0.17",
     "@types/jest": "^29.5.0",
@@ -70,6 +67,7 @@
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@types/react-transition-group": "^4.4.6",
+    "@types/testing-library__jest-dom": "^6.0.0",
     "@vitejs/plugin-react": "^3.1.0",
     "babel-plugin-named-exports-order": "^0.0.2",
     "eslint": "^8.36.0",
